@@ -22,19 +22,30 @@ export const StyledNextBtn = styled.button`
     transform: translateX(-50%);
     bottom: ${props => props.mobileBottom}px;
 
+    @media screen and (min-width: 768px) {
+      bottom: ${props => props.tabletBottom}px;
+    }
+
     @media screen and (min-width: 1300px) {
       bottom: ${props => props.pcBottom}px;
     }
 
-    @media screen and (min-width: 768px) {
-      bottom: ${props => props.tabletBottom}px;
-    }
 
   `}
   
   ${props => props.variant === 'secondary' && css`
     background-color: #BBB;
     color: white;
+    position: absolute;  
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: ${props => props.mobileBottom}px;
+    @media screen and (min-width: 768px) {
+      bottom: ${props => props.tabletBottom}px;
+    }
+     @media screen and (min-width: 1300px) {
+      bottom: ${props => props.pcBottom}px;
+    }
   `}
   
   &:disabled {

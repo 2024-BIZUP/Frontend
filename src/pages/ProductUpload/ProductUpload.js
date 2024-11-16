@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import Button from '../../components/buttons/NextBtn/NextBtn';
+import BackButton from '../../components/buttons/BackBtn/BackBtn'
 import Input from '../../components/inputs/ProductInput/ProductInput';
 import RadioGroup from '../../components/RadioGroup/RadioGroup';
+import ProgressBar from '../../components/progressBar/ProgressBar';
+import backIcon from '../../assets/backBtn.svg';
+
 import {
   ProductNameCaution,
   PageWrapper,
   Form,
   FieldGroup,
-  FieldLabel
+  FieldLabel,
+  UploadMessage,
+  Header,
+  ContentWrapper
 } from './ProductUpload.styled';
 
 const ProductUpload = () => {
@@ -52,20 +59,49 @@ const ProductUpload = () => {
     { value: '미적용', label: '미적용' }
   ];
 
+  const renderHeader = () => {
+    // 첫 페이지에서는 헤더를 보여주지 않음
+    if (currentStep === 1) return null;
+
+    return (
+      <Header>
+        <BackButton onClick={handleBack}>
+          <img src={backIcon} alt="뒤로가기" />
+        </BackButton>
+        <ProgressBar currentStep={currentStep} />
+      </Header>
+    );
+  };
+
   const renderStep = () => {
     switch(currentStep) {
       case 1:
         return (
           <div>
-            <h2>안녕하세요 00님<br/>상품등록을 하러 가실까요?</h2>
-            <Button onClick={handleNext}>상품등록 하러가기</Button>
-            <Button variant="secondary">다음에 할게요</Button>
+            <Form>
+            <UploadMessage
+            mobileTop={312} 
+            pcTop={300} 
+            tabletTop={28}>안녕하세요 00님<br/>상품등록을 하러 가실까요?</UploadMessage>
+            <Button onClick={handleNext}
+            variant="primary"
+            type="submit" 
+            mobileBottom={168} 
+            pcBottom={339} 
+            tabletBottom={28}>상품등록 하러가기</Button>
+            <Button variant="secondary"
+                type="submit" 
+                mobileBottom={85} 
+                pcBottom={256} 
+                tabletBottom={28}>다음에 할게요</Button>
+            </Form>
+          
           </div>
         );
 
       case 2:
         return (
-          <PageWrapper>
+         
             <Form onSubmit={handleSubmit}>
               <div>
                 <Input
@@ -117,7 +153,7 @@ const ProductUpload = () => {
                 다음
               </Button>
             </Form>
-          </PageWrapper>
+          
         );
 
       case 3:
@@ -129,7 +165,14 @@ const ProductUpload = () => {
     }
   };
 
-  return renderStep();
+  return (
+    <PageWrapper>
+      {renderHeader()}
+      <ContentWrapper>
+        {renderStep()}
+      </ContentWrapper>
+    </PageWrapper>
+  );
 };
 
 export default ProductUpload;
