@@ -12,7 +12,7 @@ export const StyledBackBtn = styled.button`
     flex-shrink: 0;
     border-radius: 32px;
     border: none;
-    background: #var(--Foundation-Neutral-grey-2, #FDFDFD);
+    background: #FDFDFD;
     box-shadow: 0px 4px 12px 0px rgba(41, 37, 38, 0.10);
 
 
