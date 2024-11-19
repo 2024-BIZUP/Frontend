@@ -9,6 +9,7 @@ export const Header = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 16px;   
+  margin-top: 2px;
  
 `;
 export const ButtonContainer = styled.div`
