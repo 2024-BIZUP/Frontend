@@ -3,8 +3,9 @@ import Button from '../../components/buttons/NextBtn/NextBtn';
 import BackButton from '../../components/buttons/BackBtn/BackBtn'
 import Input from '../../components/inputs/ProductInput/ProductInput';
 import RadioGroup from '../../components/RadioGroup/RadioGroup';
-import ProgressBar from '../../components/progressBar/ProgressBar';
+import ProgressBarHeader from '../../components/Header/ProgressBarHeader';
 import backIcon from '../../assets/backBtn.svg';
+import plusIcon from '../../assets/plusIcon.svg';
 
 import * as S from './ProductUpload.styled';
 
@@ -17,13 +18,15 @@ const ProductUpload = () => {
     discountAmount: '',
     discountType: '적용',
     discountPeriod: '',
-    // 두 번째 단계 데이터
-    uploadCount: '',
-    uploadName: '',
-    // 세 번째 단계 데이터
-    uploadPrice: '',
-    priceList: []
+    optionNames: [''], // 옵션명 입력 필드 배열
+    optionPrices: [''], // 옵션 가격 입력 필드 배열
+    
   });
+  const discountOptions = [
+    { value: '적용', label: '적용' },
+    { value: '미적용', label: '미적용' }
+  ];
+
 
   const handleChange = (field) => (e) => {
     setFormData(prev => ({
@@ -45,24 +48,46 @@ const ProductUpload = () => {
     handleNext(); // 다음 스텝으로 이동
   };
 
-  const discountOptions = [
-    { value: '적용', label: '적용' },
-    { value: '미적용', label: '미적용' }
-  ];
+  const handleOptionNameChange = (index, value) => {
+    const newOptionNames = [...formData.optionNames];
+    newOptionNames[index] = value;
+    setFormData(prev => ({
+      ...prev,
+      optionNames: newOptionNames
+    }));
+  };
 
+  const handleOptionPriceChange = (index, value) => {
+    const newOptionPrices = [...formData.optionPrices];
+    newOptionPrices[index] = value;
+    setFormData(prev => ({
+      ...prev,
+      optionPrices: newOptionPrices
+    }));
+  };
+
+  const addOptionNameField = () => {
+    setFormData(prev => ({
+      ...prev,
+      optionNames: [...prev.optionNames, '']
+    }));
+  };
+
+  const addOptionPriceField = () => {
+    setFormData(prev => ({
+      ...prev,
+      optionPrices: [...prev.optionPrices, '']
+    }));
+  };
+  
   const renderHeader = () => {
     // 첫 페이지에서는 헤더를 보여주지 않음
     if (currentStep === 1) return null;
 
     return (
-      <S.Header>
-         <ProgressBar currentStep={currentStep} />
-        <S.ButtonContainer>
-          <BackButton onClick={handleBack}>
-            <img src={backIcon} alt="뒤로가기" />
-          </BackButton>
-        </S.ButtonContainer>
-      </S.Header>
+      <ProgressBarHeader 
+      currentStep={currentStep}
+      onBack={handleBack}/>
     );
   };
 
@@ -151,17 +176,84 @@ const ProductUpload = () => {
 
       case 3:
         return (
-          <S.Form>
-          <S.FieldGroup>
-                <S.FieldLabel>옵션</S.FieldLabel>
-                <RadioGroup
-                  options={discountOptions}
-                  value={formData.discountType}
-                  onChange={(value) => handleChange('discountType')({ target: { value }})}
-                  name="discountType"
-                />
+          
+          <S.Form onSubmit={handleSubmit}>
+        <S.FieldGroup>
+          <S.FieldLabel>옵션</S.FieldLabel>
+          <RadioGroup
+            options={discountOptions}
+            value={formData.discountType}
+            onChange={(value) => handleChange('discountType')({ target: { value }})}
+            name="discountType"
+          />
         </S.FieldGroup>
-        </S.Form>
+        
+        {formData.discountType === '적용' && (
+          <>
+         
+            <Input
+              label="옵션명 개수"
+              type="number"
+              value={formData.uploadCount}
+              onChange={handleChange('uploadCount')}
+              placeholder="숫자만 입력"
+            />
+             <div>
+            <S.OptionGroup>
+              <Input
+                label="옵션명"
+                value={formData.optionNames[0]}
+                onChange={(e) => handleOptionNameChange(0, e.target.value)}
+                placeholder="ex) 안동 청송 프리미엄 햇 사과 가정용, 9kg, 2개"
+              />
+              {formData.optionNames.slice(1).map((value, index) => (
+                <Input
+                  key={`option-name-${index + 1}`}
+                  value={value}
+                  onChange={(e) => handleOptionNameChange(index + 1, e.target.value)}
+                  placeholder="옵션명을 입력하세요"
+                />
+              ))}
+              <S.AddButton type="button" onClick={addOptionNameField}>
+                <img src={plusIcon}></img>
+              </S.AddButton>
+            </S.OptionGroup>
+            
+            <S.OptionGroup>
+              <Input
+                label="옵션가격"
+                type="number"
+                value={formData.optionPrices[0]}
+                onChange={(e) => handleOptionPriceChange(0, e.target.value)}
+                placeholder="ex) 35000"
+              />
+              {formData.optionPrices.slice(1).map((value, index) => (
+                <Input
+                  key={`option-price-${index + 1}`}
+                  type="number"
+                  value={value}
+                  onChange={(e) => handleOptionPriceChange(index + 1, e.target.value)}
+                  placeholder="가격을 입력하세요"
+                />
+              ))}
+              <S.AddButton type="button" onClick={addOptionPriceField}>
+              <img src={plusIcon}></img>
+              </S.AddButton>
+            </S.OptionGroup>
+            </div>
+          </>
+        )}
+        
+        <Button 
+          type="submit" 
+          variant="primary" 
+          mobileBottom={72} 
+          pcBottom={206} 
+          tabletBottom={28}
+        >
+          다음
+        </Button>
+      </S.Form>
 
         );
         
