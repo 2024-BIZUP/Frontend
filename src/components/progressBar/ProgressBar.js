@@ -1,12 +1,14 @@
 import React from 'react';
-import {ProgressBarContainer, Progress} from './ProgressBar.styled';
+import { ProgressBarContainer, StepBar } from './ProgressBar.styled';
 
 const ProgressBar = ({ currentStep }) => {
-    return (
-      <ProgressBarContainer>
-        <Progress step={currentStep} />
-      </ProgressBarContainer>
-    );
-  };
-  
+  return (
+    <ProgressBarContainer>
+      {[1, 2, 3, 4, 5].map(step => (
+        <StepBar key={step} active={step < currentStep} />
+      ))}
+    </ProgressBarContainer>
+  );
+};
+
 export default ProgressBar;

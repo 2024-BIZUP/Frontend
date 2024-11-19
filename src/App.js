@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Community />} />
-          <Route path="/upload" element={<ProductUpload />} />
+          <Route path="/product-upload" element={<ProductUpload />} />
           <Route path="/community-upload" element={<CommunityUpload />} />
           <Route path="/community/detail" element={<CommunityDetail />} />
         </Routes>
@@ -23,5 +23,6 @@ function App() {
     </ThemeProvider>
   );
 }
+
 
 export default App;
