@@ -145,3 +145,132 @@ img {
   flex-shrink: 0;
 }
 `
+export const OptionsBox = styled.div`
+  width: 342px;
+  border-radius: 8px;
+  border: 1px solid #505050;
+  overflow: hidden;
+  margin-bottom: 24px;
+`;
+
+
+export const OptionRow = styled.div`
+  width: 100%;
+  height:48px;
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${props => props.isLast ? 'none' : '1px solid #505050'};
+`;
+
+export const OptionName = styled.span`
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  margin-right: 16px;
+`;
+
+export const OptionPrice = styled.span`
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.32px;
+  white-space: nowrap;
+`;
+
+export const UploadBox = styled.div`
+  width: 342px;
+  height: 212px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #505050;
+  background: var(--white-white-transparent, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+export const UploadIcon = styled.div`
+  
+`;
+export const UploadLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  span {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+`;
+
+export const UploadInput = styled.input`
+  display: none;
+`;
+
+export const PreviewImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+export const Label = styled.p`
+  width: 342px;
+  display: block;
+  color: #000;
+  font-size: 18px;
+  font-family: "Noto Sans KR"
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 116.667% */
+  letter-spacing: -0.32px;
+  margin-bottom: 8px; //밑에 마진값 주기 
+`
+export const TextEditorContainer = styled.div`
+  width: 342px;
+  border-radius: 8px;
+  border: 1px solid #505050;
+  overflow: hidden;
+`;
+
+export const ColorPaletteWrapper = styled.div`
+  height:56px;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  align-items: center;
+border-bottom: 1px solid #505050;
+`;
+
+export const ColorButton = styled.button`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background-color: ${props => props.color};
+  cursor: pointer;
+`;
+
+export const TextArea = styled.div`
+  width: 100%;
+  min-height: 200px;
+  padding: 16px;
+  
+   &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+`;
