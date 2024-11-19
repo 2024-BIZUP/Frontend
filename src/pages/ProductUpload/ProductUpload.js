@@ -6,16 +6,7 @@ import RadioGroup from '../../components/RadioGroup/RadioGroup';
 import ProgressBar from '../../components/progressBar/ProgressBar';
 import backIcon from '../../assets/backBtn.svg';
 
-import {
-  ProductNameCaution,
-  PageWrapper,
-  Form,
-  FieldGroup,
-  FieldLabel,
-  UploadMessage,
-  Header,
-  ContentWrapper
-} from './ProductUpload.styled';
+import * as S from './ProductUpload.styled';
 
 const ProductUpload = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -64,12 +55,14 @@ const ProductUpload = () => {
     if (currentStep === 1) return null;
 
     return (
-      <Header>
-        <BackButton onClick={handleBack}>
-          <img src={backIcon} alt="뒤로가기" />
-        </BackButton>
-        <ProgressBar currentStep={currentStep} />
-      </Header>
+      <S.Header>
+         <ProgressBar currentStep={currentStep} />
+        <S.ButtonContainer>
+          <BackButton onClick={handleBack}>
+            <img src={backIcon} alt="뒤로가기" />
+          </BackButton>
+        </S.ButtonContainer>
+      </S.Header>
     );
   };
 
@@ -78,11 +71,11 @@ const ProductUpload = () => {
       case 1:
         return (
           <div>
-            <Form>
-            <UploadMessage
+            <S.Form>
+            <S.UploadMessage
             mobileTop={312} 
             pcTop={300} 
-            tabletTop={28}>안녕하세요 00님<br/>상품등록을 하러 가실까요?</UploadMessage>
+            tabletTop={28}>안녕하세요 00님<br/>상품등록을 하러 가실까요?</S.UploadMessage>
             <Button onClick={handleNext}
             variant="primary"
             type="submit" 
@@ -94,7 +87,7 @@ const ProductUpload = () => {
                 mobileBottom={85} 
                 pcBottom={256} 
                 tabletBottom={28}>다음에 할게요</Button>
-            </Form>
+            </S.Form>
           
           </div>
         );
@@ -102,7 +95,7 @@ const ProductUpload = () => {
       case 2:
         return (
          
-            <Form onSubmit={handleSubmit}>
+            <S.Form onSubmit={handleSubmit}>
               <div>
                 <Input
                   label="상품명"
@@ -110,10 +103,10 @@ const ProductUpload = () => {
                   onChange={handleChange('productName')}
                   placeholder="ex. 안동 청송 프리미엄 햇 사과 가정용, 9kg, 1개"
                 />
-                <ProductNameCaution>
+                <S.ProductNameCaution>
                   유명 상품을 유사문구로 무단 도용할 경우 별다른 고지없이<br/>
                   제재될 수 있다는 점 참고부탁드립니다.
-                </ProductNameCaution>
+                </S.ProductNameCaution>
               </div>
               <Input
                 label="판매가"
@@ -122,8 +115,8 @@ const ProductUpload = () => {
                 onChange={handleChange('price')}
                 placeholder="숫자만 입력"
               />
-              <FieldGroup>
-                <FieldLabel>할인적용</FieldLabel>
+              <S.FieldGroup>
+                <S.FieldLabel>할인적용</S.FieldLabel>
                 <RadioGroup
                   options={discountOptions}
                   value={formData.discountType}
@@ -136,7 +129,7 @@ const ProductUpload = () => {
                   onChange={handleChange('discountAmount')}
                   placeholder="숫자만 입력"
                 />
-              </FieldGroup>
+              </S.FieldGroup>
               <Input
                 label="할인기간"
                 value={formData.discountPeriod}
@@ -152,13 +145,27 @@ const ProductUpload = () => {
               >
                 다음
               </Button>
-            </Form>
+            </S.Form>
           
         );
 
       case 3:
-        // 여기에 세 번째 스텝 추가
-        return null;
+        return (
+          <S.Form>
+          <S.FieldGroup>
+                <S.FieldLabel>옵션</S.FieldLabel>
+                <RadioGroup
+                  options={discountOptions}
+                  value={formData.discountType}
+                  onChange={(value) => handleChange('discountType')({ target: { value }})}
+                  name="discountType"
+                />
+        </S.FieldGroup>
+        </S.Form>
+
+        );
+        
+        
 
       default:
         return null;
@@ -166,12 +173,12 @@ const ProductUpload = () => {
   };
 
   return (
-    <PageWrapper>
+    <S.PageWrapper>
       {renderHeader()}
-      <ContentWrapper>
+      <S.ContentWrapper>
         {renderStep()}
-      </ContentWrapper>
-    </PageWrapper>
+      </S.ContentWrapper>
+    </S.PageWrapper>
   );
 };
 

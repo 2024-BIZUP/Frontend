@@ -7,7 +7,7 @@ export const ProgressBarContainer = styled.div`
   width: 100%;
   height: 8px;
   background: #EEEEEE;
-  
+
 `;
 
 export const Progress = styled.div`
@@ -16,5 +16,6 @@ export const Progress = styled.div`
   width: ${props => ((props.step - 1) / 4) * 100}%;
   background: #70614C;
   transition: width 0.3s ease;
+  margin-bottom: 20px;
 `;
 

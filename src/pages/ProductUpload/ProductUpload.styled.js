@@ -1,79 +1,88 @@
 import styled from 'styled-components';
 
 
-const PageWrapper = styled.div`
-  width: 100vw;
-  height:100vh;
+export const PageWrapper = styled.div`
+  width: 100%;
   max-width: 390px; 
-  min-height: 840px;// 모바일 기준
- 
+  height: 100vh;
   padding: 0;
-  box-sizing: border-box;
-  
+  display:flex;
+  flex-direction: column;
+  overflow-x: hidden;
   justify-content: center;
   position: relative;
- 
+  margin: 0 auto;
 
 
   @media ${props => props.theme.device.tablet} {
     max-width: 700px;
-    padding: 2rem;
+
   }
 
   @media ${props => props.theme.device.laptop} {
     max-width: 1024px;
-    padding: 2.5rem;
+
   }
 `;
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
-  max-width: 390px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 28px auto 0 auto;
   
   
-  box-sizing: border-box;
 
   @media ${props => props.theme.device.tablet} {
     max-width: 700px;
-    padding: 0 2rem;
+
   }
 
   @media ${props => props.theme.device.laptop} {
     max-width: 1024px;
-    padding: 0 2.5rem;
+
   }
 `;
-const Header = styled.div`
+export const Header = styled.div`
+  
   position: relative;
   width: 100%;
-  padding: 16px 0;
+  height: 65px;
   display: flex;
   align-items: center;
-  flex-direction: column;  // flex 방향 수정
   gap: 16px;   
  
 `;
+export const ButtonContainer = styled.div`
+ position: relative;
+ width: 100%;
+ margin: 10px auto 0 auto;
 
-const ProductNameCaution = styled.p`
+`
+
+export const ProductNameCaution = styled.p`
   font-size: 12px;
   font-style: normal;
   color: #757575;
   margin-top: 4px;
 
 ` 
-const Form = styled.form`
-  width: 342px;
+export const Form = styled.form`
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
+
+  max-width:100%;
  
 `;
 
 
 
 
-const CloseButton = styled.button`
+export const CloseButton = styled.button`
   position: absolute;
   top: 34px;
   right: 32px;
@@ -90,7 +99,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const UploadMessage = styled.h2`
+export const UploadMessage = styled.h2`
   color: #111;
   text-align: center;
   font-size: 24px;
@@ -106,12 +115,12 @@ const UploadMessage = styled.h2`
       margin-top: ${props => props.pcTop}px;
     }
 `
-const FieldGroup = styled.div`
+export const FieldGroup = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const FieldLabel = styled.p`
+export const FieldLabel = styled.p`
  color: #000;
 font-family: "Noto Sans KR";
 font-size: 18px;
@@ -123,14 +132,3 @@ letter-spacing: -0.32px;
 `;
 
 
-
-export {
-  ProductNameCaution,
-  FieldLabel,
-  FieldGroup,
-  Form,
-  PageWrapper,
-  UploadMessage,
-  Header,
-  ContentWrapper
-}
