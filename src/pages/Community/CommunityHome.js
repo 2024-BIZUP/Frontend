@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './CommunityHome.styled';
-import homeIcon from '../../assets/homeBtn.svg';
+import Header from '../../components/Header/Header';
 import fireIcon from '../../assets/fireIcon.svg';
 import bannerIcon from '../../assets/bolgBannerIcon.svg';
 import showIcon from '../../assets/showBtn.svg';
@@ -18,6 +18,10 @@ const CommunityHome = () => {
     const handleHomeClick = () => {
       navigate('/'); // 홈 경로로 이동
     };
+
+    const handlePostButtonClick = () => {
+        navigate('/community-upload'); // CommunityUpload.js로 연결
+      };
   const navItems = ['서울', '인천', '경기도', '강원도', '충청도', '전라도', '경상도', '제주도'];
   
   const photos = [
@@ -87,15 +91,11 @@ const CommunityHome = () => {
 
   return (
     <S.Container>
-      <S.HeaderWrapper>
-        <S.Logo>BIZ Blog</S.Logo>
-        <S.HomeButton 
-          onClick={handleHomeClick}
-          aria-label="홈으로 가기"
-        >
-          <img src={homeIcon} alt="" />
-        </S.HomeButton>
-      </S.HeaderWrapper>
+      <Header  type="home"
+    title="BIZ Blog"
+    onHomeClick={() => navigate('/home')}>
+      
+    </Header>
       <S.TopNavigation>
         {navItems.map((item) => (
           <S.NavItem key={item}>{item}</S.NavItem>
@@ -181,7 +181,7 @@ const CommunityHome = () => {
         </S.TodayBlogItem>
         ))}
       </S.TodayBlogSection>
-      <S.PostButton>
+      <S.PostButton  onClick={handlePostButtonClick}>
         <img src={postIcon}></img>
       </S.PostButton>
     </S.Container>

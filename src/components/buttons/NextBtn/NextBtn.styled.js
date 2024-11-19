@@ -47,6 +47,36 @@ export const StyledNextBtn = styled.button`
       bottom: ${props => props.pcBottom}px;
     }
   `}
+  ${props => props.variant === 'tertiary' && css`
+    background: var(--white-white-transparent, #FFF);
+    border: 1px solid #C4C4C4;
+    color: #8E98A8;
+    position: absolute;  
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: ${props => props.mobileBottom}px;
+    @media screen and (min-width: 768px) {
+      bottom: ${props => props.tabletBottom}px;
+    }
+     @media screen and (min-width: 1300px) {
+      bottom: ${props => props.pcBottom}px;
+    }
+  `}
+  ${props => props.variant === 'quaternary' && css`
+    background: #E9E9E9;
+    border: none;
+    color: #000;
+    position: absolute;  
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: ${props => props.mobileBottom}px;
+    @media screen and (min-width: 768px) {
+      bottom: ${props => props.tabletBottom}px;
+    }
+     @media screen and (min-width: 1300px) {
+      bottom: ${props => props.pcBottom}px;
+    }
+  `}
   
   &:disabled {
     opacity: 0.7;

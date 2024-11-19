@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   max-width: 390px;
   margin: 0 auto;
   padding: 0;
@@ -11,48 +11,11 @@ const Container = styled.div`
   justify-content: center; /* 세로 중앙 정렬 */
 `;
 
-const HeaderWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  margin-top:5px;
-  margin-bottom: 20px;
-  position: relative;
-`;
 
-const Logo = styled.h1`
-color: #1D0E07;
-text-align: center;
-font-size: 16px;
-font-style: normal;
-font-weight: 900;
-line-height: normal;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-`;
 
-const HomeButton = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  position: absolute;
-  left: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  img {
-    width: 14px;
-height: 16px;
-  }
-`;
 
-const TopNavigation = styled.nav`
+export const TopNavigation = styled.nav`
   width: 100%;
   display: flex;
   gap: 20px;
@@ -67,7 +30,7 @@ const TopNavigation = styled.nav`
   }
 `;
 
-const NavItem = styled.div`
+export const NavItem = styled.div`
   flex-shrink: 0; /* 자식 요소가 작아지지 않도록 설정 */
   width: 60px;
   height: 60px;
@@ -89,7 +52,7 @@ const NavItem = styled.div`
 `;
 
 
-const BannerCard = styled.div`
+export const BannerCard = styled.div`
 width: 319px;
 height: 204px;
 flex-shrink: 0;
@@ -100,7 +63,7 @@ background: rgba(112, 97, 76, 0.20);
   position: relative;
 `;
 
-const BannerText = styled.div`
+export const BannerText = styled.div`
   position: absolute;
   left:23px;
   top:32px;
@@ -116,7 +79,7 @@ const BannerText = styled.div`
     font-weight: 700;
   }
 `;
-const BannerImage = styled.img`
+export const BannerImage = styled.img`
   width: 209px;
 height: 209px;
 flex-shrink: 0;
@@ -125,7 +88,7 @@ right:-9px;
   bottom: 6px;
 `;
 
-const BannerButton = styled.button`
+export const BannerButton = styled.button`
   display: inline-flex;
   padding: 8px;
   justify-content: center;
@@ -147,14 +110,14 @@ const BannerButton = styled.button`
   bottom: 48px;
 `;
 
-const PhotoSection = styled.section`
+export const PhotoSection = styled.section`
   width:100%;
   padding-left: 34px;
   margin-bottom: 40px;
   
 `;
 
-const SectionTitle = styled.h2`
+export const SectionTitle = styled.h2`
 color: #1D0E07;
 font-size: 14px;
 font-style: normal;
@@ -171,7 +134,7 @@ position: relative;
 
 `;
 
-const InfoButton = styled.button`
+export const InfoButton = styled.button`
   border: none;
   background: none;
   display: inline-flex;
@@ -187,7 +150,7 @@ const InfoButton = styled.button`
   }
 `;
 
-const PhotoGrid = styled.div`
+export const PhotoGrid = styled.div`
   width:100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -200,7 +163,7 @@ const PhotoGrid = styled.div`
   }
 `;
 
-const PhotoCard = styled.div`
+export const PhotoCard = styled.div`
   position: relative;
   border-radius: 10px;
   display: flex;
@@ -220,7 +183,7 @@ const PhotoCard = styled.div`
 `;
 
 
-const CardTitle = styled.div`
+export const CardTitle = styled.div`
   color: white;
   z-index: 1;
   
@@ -241,7 +204,7 @@ const CardTitle = styled.div`
   }
 `;
 
-const CardActions = styled.div`
+export const CardActions = styled.div`
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -251,12 +214,12 @@ const CardActions = styled.div`
   z-index: 1;
 `;
 
-const ActionContainer =styled.div`
+export const ActionContainer =styled.div`
   display: flex;
   gap: 8px;
   z-index: 1;
 `
-const ActionButton = styled.button`
+export const ActionButton = styled.button`
   background: none;
   border: none;
   padding: 0;
@@ -269,14 +232,14 @@ const ActionButton = styled.button`
   }
 `;
 
-const BlogSection = styled.section`
+export const BlogSection = styled.section`
   width:100%;
   padding-left:34px;
   margin-bottom: 30px;
   
 `;
 
-const BlogGrid = styled.div`
+export const BlogGrid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -288,7 +251,7 @@ const BlogGrid = styled.div`
     display: none;
 `;
 
-const BlogCard = styled.div`
+export const BlogCard = styled.div`
   display:flex;
   flex-direction: column;
   gap: 7px;
@@ -304,7 +267,7 @@ const BlogCard = styled.div`
 `;
 
 
-const BlogContent = styled.div`
+export const BlogContent = styled.div`
   display:flex;
   flex-direction: column;
 
@@ -326,7 +289,7 @@ const BlogContent = styled.div`
 
 `;
 
-const BlogContentTag = styled.div`
+export const BlogContentTag = styled.div`
   display: flex;
   border-radius: 28px;
   background:white;
@@ -344,13 +307,13 @@ const BlogContentTag = styled.div`
  
 `
 
-const TodayBlogSection = styled.section`
+export const TodayBlogSection = styled.section`
   width: 100%;
   padding-left: 34px;
   margin-bottom: 30px;
 `;
 
-const TodayBlogItem = styled.div`
+export const TodayBlogItem = styled.div`
   display: grid;
   grid-template-columns: 110px 1fr;  
   align-items: center;
@@ -359,7 +322,7 @@ const TodayBlogItem = styled.div`
   margin-bottom: 13px;
 `;
 
-const TodayBlogIconBox = styled.div`
+export const TodayBlogIconBox = styled.div`
   display: flex;
   align-items: center;
   padding: 6px 7px;
@@ -387,7 +350,7 @@ const TodayBlogIconBox = styled.div`
   }
 `;
 
-const TodayBlogIcon = styled.span`
+export const TodayBlogIcon = styled.span`
   color: #000;
   text-align: center;
   font-size: 10px;
@@ -397,7 +360,7 @@ const TodayBlogIcon = styled.span`
   letter-spacing: -0.32px;
 `;
 
-const TodayBlogText = styled.span`
+export const TodayBlogText = styled.span`
   color: #000;
   font-size: 10px;
   font-style: normal;
@@ -406,7 +369,7 @@ const TodayBlogText = styled.span`
   max-width: 160px;
 `;
 
-const PostButton = styled.button`
+export const PostButton = styled.button`
   position: fixed;
   right: 15px;
   bottom: 31px;
@@ -423,35 +386,3 @@ const PostButton = styled.button`
   z-index: 1000;
 `;
 
-export {
-  Container,
-  HeaderWrapper,
-  Logo,
-  HomeButton,
-  TopNavigation,
-  NavItem,
-  BannerCard,
-  BannerText,
-  BannerImage,
-  BannerButton,
-  PhotoSection,
-  SectionTitle,
-  PhotoGrid,
-  PhotoCard,
-  CardTitle,
-  CardActions,
-  ActionContainer,
-  ActionButton,
-  BlogSection,
-  BlogGrid,
-  BlogCard,
-  BlogContent,
-  BlogContentTag,
-  TodayBlogSection,
-  TodayBlogIconBox,   // 변경
-  TodayBlogItem,       // 변경
-  TodayBlogIcon,       // 변경
-  TodayBlogText,       // 변경
-  InfoButton,
-  PostButton
-};
