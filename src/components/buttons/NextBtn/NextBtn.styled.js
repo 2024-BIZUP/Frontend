@@ -13,6 +13,7 @@ export const StyledNextBtn = styled.button`
   font-weight: 500;
   line-height: 21px; /* 116.667% */
   letter-spacing: -0.32px;
+  
 
   ${props => props.variant === 'primary' && css`
     background-color: #70614C;

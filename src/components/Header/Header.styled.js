@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  width: 100%;
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div`
 export const Logo = styled.h1`
 color: #1D0E07;
 text-align: center;
-font-size: 16px;
+font-size: ${props => props.fontsize|| 16}px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
