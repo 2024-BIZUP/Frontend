@@ -6,7 +6,7 @@ import {
   StyledRadio
 } from './RadioGroup.styled';
 
-const RadioGroup = ({ options, value, onChange, name }) => {
+const RadioGroup = ({ options, value, onChange, name, width,height,fontsize,radius}) => {
   return (
     <RadioGroupWrapper>
       {options.map((option) => (
@@ -18,7 +18,12 @@ const RadioGroup = ({ options, value, onChange, name }) => {
             checked={value === option.value}
             onChange={() => onChange(option.value)}
           />
-          <StyledRadio checked={value === option.value}>
+          <StyledRadio 
+          width={width} 
+          height={height} 
+          fontsize={fontsize} 
+          radius={radius} 
+          checked={value === option.value}>
             {option.label}
           </StyledRadio>
         </RadioLabel>

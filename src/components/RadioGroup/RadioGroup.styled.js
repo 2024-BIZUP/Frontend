@@ -21,13 +21,13 @@ const HiddenRadio = styled.input`
 `;
 
 const StyledRadio = styled.span`
-  width: 60px;
-  height: 32px;
-  border-radius: 16px;
+  width: ${props => props.width || 60}px; 
+  height: ${props => props.height || 32}px;
+  border-radius: ${props => props.radius || 16}px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: ${props => props.fontsize|| 14}px;
   font-style: normal;
   transition: all 0.2s ease;
   margin: 16px 0 8px 0;

@@ -8,12 +8,13 @@ const Header = ({
   type = 'back',  // 'back' 또는 'home'
   showBackButton = true, 
   onBack,
-  onHomeClick
+  onHomeClick,
+  fontsize
 }) => {
   if (type === 'home') {
       return (
           <S.HeaderWrapper>
-              <S.Logo>{title}</S.Logo>
+              <S.Logo fontsize={fontsize}>{title}</S.Logo>
               <S.HomeButton
                   onClick={onHomeClick}
                   aria-label="홈으로 가기"
@@ -31,7 +32,7 @@ const Header = ({
                   <img src={BackButton} alt="back" />
               </BackBtn>
           )}
-          <S.Logo hasBackButton={showBackButton}>{title}</S.Logo>
+          <S.Logo fontsize={fontsize} hasBackButton={showBackButton}>{title}</S.Logo>
       </S.HeaderWrapper>
   );
 };
