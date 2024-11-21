@@ -10,6 +10,9 @@ import CommunityDetail from './pages/Community/CommunityDetail';
 import MyPage from './pages/MyPage/MyPage';
 import ProductManagement from './pages/MyPage/ProductManagement';
 import PostManagement from './pages/MyPage/PostManagement';
+import SignUp from './pages/SignUp/SignUp';
+import Academy from './pages/Academy/Academy';
+import AcademyDetail from './pages/Academy/AcademyDetail';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path='/mypage' element={<MyPage/>} />
           <Route path='/mypage/product-management' element={<ProductManagement/>}/>
           <Route path='/mypage/post-management' element={<PostManagement/>}/>
+          <Route path='/signup' element={<SignUp/>}/> 
+          <Route path='/academy' element={<Academy/>}/> 
+          <Route path='/academy/detail' element={<AcademyDetail/>}/> 
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
