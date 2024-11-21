@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 390px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -11,9 +10,9 @@ export const Container = styled.div`
 
 
 export const Content = styled.main`
-  width: 100%;
+  width: 390px;
   flex: 1;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
 `;
 
 export const ImageContainer = styled.div`
