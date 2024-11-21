@@ -59,7 +59,7 @@ flex-shrink: 0;
 border-radius: 10px;
 background: rgba(112, 97, 76, 0.20);
   padding: 20px;
-  margin-bottom: 37px;
+  margin: 0 auto 37px auto;
   position: relative;
 `;
 
@@ -260,10 +260,13 @@ export const BlogCard = styled.div`
   height: 244px;
   border-radius: 12px;
   overflow: hidden;
-  background-color: #f8f8f8;
-  background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
+  background-image: url(${props => props.image});
+  background-color:rgba(112, 77, 28, 0.10);
+
+
+
 `;
 
 

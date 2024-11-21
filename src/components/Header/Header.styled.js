@@ -1,14 +1,26 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  width:100%;
+  width:390px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 0;
-  margin-top: 42px;
-  margin-bottom: 20px;
+  margin : 42px auto 20px auto;
   position: relative;
+
+  @media  ${props => props.theme.device.mobile} {
+      width:390px;
+   }
+   // 태블릿
+  @media ${props => props.theme.device.tablet} {
+   width:390px;
+  }
+
+  // 랩탑
+  @media ${props => props.theme.device.pc} {
+    width:390px;
+  }
 `;
 
 export const Logo = styled.h1`

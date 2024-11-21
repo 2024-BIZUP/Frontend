@@ -8,11 +8,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin: 0 auto;
 `;
 
 
 export const ContentWrapper = styled.div`
-  width: 100%;
+  width: 390px;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -172,6 +173,34 @@ export const ContentTextArea = styled.textarea`
   }
 `;
 
+export const TipTextDiv = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+gap: 10px;
+
+// 첫 번째 자식 요소 (왼쪽 정렬)
+  & > *:first-child {
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  // 두 번째 자식 요소 (왼쪽 정렬)
+  & > *:nth-child(2) {
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  // 세 번째 자식 요소 (오른쪽 정렬)
+  & > *:nth-child(3) {
+    justify-content: flex-end;
+    margin-right: auto;
+    margin-left: 0;
+  }
+`
 export const TipContainer = styled.div`
   width: 100%;
   display: flex;
@@ -179,6 +208,8 @@ export const TipContainer = styled.div`
   align-items: center;
   gap: 20px;
   margin-bottom: 80px;
+  
+
 `;
 
 export const IconWrapper = styled.div`
@@ -196,7 +227,6 @@ export const IconWrapper = styled.div`
 export const TipTextContainer = styled.div`
 display: flex;
 padding: 22px 12px;
-justify-content: center;
 align-items: center;
 gap: 10px;
 background: var(--white-white-transparent, #FFF);

@@ -10,7 +10,13 @@ import bookmarkIcon from '../../assets/bookmarkIcon.svg';
 import commentIcon from '../../assets/commentIcon.svg';
 import postIcon from '../../assets/postIcon.svg';
 import bizIcon from '../../assets/bizupIcon.svg';
+import Sample1 from '../../assets/communityHomeSampleImg1.png';
+import Sample2 from '../../assets/communityHomeSampleImg2.png';
+import Sample3 from '../../assets/communityHomeSampleImg3.png';
+import Sample4 from '../../assets/communityHomeSampleImg4.png';
+import Sample5 from '../../assets/communityHomeSampleImg5.png'
 import { useNavigate } from 'react-router-dom';
+
 
 const CommunityHome = () => {
     const navigate = useNavigate();
