@@ -13,6 +13,8 @@ import PostManagement from './pages/MyPage/PostManagement';
 import SignUp from './pages/SignUp/SignUp';
 import Academy from './pages/Academy/Academy';
 import AcademyDetail from './pages/Academy/AcademyDetail';
+import Product from './pages/Product/Product';
+import ProductList from './pages/Product/ProductList';
 
 function App() {
   return (
@@ -20,16 +22,18 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Community />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/product-upload" element={<ProductUpload />} />
           <Route path="/community-upload" element={<CommunityUpload />} />
           <Route path="/community/detail" element={<CommunityDetail />} />
           <Route path='/mypage' element={<MyPage/>} />
           <Route path='/mypage/product-management' element={<ProductManagement/>}/>
           <Route path='/mypage/post-management' element={<PostManagement/>}/>
-          <Route path='/signup' element={<SignUp/>}/> 
+          <Route path='/' element={<SignUp/>}/> 
           <Route path='/academy' element={<Academy/>}/> 
           <Route path='/academy/detail' element={<AcademyDetail/>}/> 
+          <Route path='/product' element={<ProductList/>}/>
+          <Route path='/product/:id' element={<Product/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
